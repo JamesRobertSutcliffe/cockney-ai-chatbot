@@ -1,4 +1,4 @@
-import { apiKey } from "./secret.js";
+import { apiKey } from "../assets/js/secret.js";
 
 let conversationHistory = [{ role: "assistant", content: "Always respond in cockney dialect." }];
 
