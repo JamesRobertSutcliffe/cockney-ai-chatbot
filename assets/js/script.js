@@ -1,9 +1,17 @@
 import { apiKey } from "./secret.js";
 
+// Conversation log
 let conversationHistory = [{ role: "assistant", content: "Always respond in cockney dialect." }];
 
+// Event listeners for submit button and enter key
 document.getElementById('chat-form').addEventListener('submit', respond)
+document.getElementById('chat-form').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+        respond(e);
+    }
+});
 
+// DOM access to chat text area
 const responseArea = document.getElementById('response-area');
 
 function respond(event) {
@@ -21,8 +29,8 @@ function respond(event) {
     userInputArea.value = "";
 };
 
+// Function contacts API and logs response
 function callChatGptApi(userInput) {
-
     // Add user input to conversation history
     conversationHistory.push({ role: "user", content: userInput });
     console.log({ role: "user", content: userInput })
@@ -37,7 +45,6 @@ function callChatGptApi(userInput) {
         body: JSON.stringify({
             model: "gpt-3.5-turbo", // Replace with the specific model you intend to use
             messages: conversationHistory,
-            //prompt: [{}]
             max_tokens: 1500 // Example value; adjust as needed
         })
     })
@@ -58,6 +65,7 @@ function callChatGptApi(userInput) {
         });
 }
 
+// Function displays user and openAI response on page
 function displayResponse(apiResponse) {
     const assistantResponse = apiResponse.choices[0].message.content;
     responseArea.innerHTML += `<div><strong>ChatGPT:</strong> ${assistantResponse}</div>`;
