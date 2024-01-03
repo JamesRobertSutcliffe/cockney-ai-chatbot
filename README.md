@@ -17,4 +17,4 @@ https://main--guileless-dragon-49c84e.netlify.app/
 
 ## Acknowledgments
 
-- https://undraw.co/ provided open source illustrations which were utilised throughout this portfolio.
+- Open AI API
