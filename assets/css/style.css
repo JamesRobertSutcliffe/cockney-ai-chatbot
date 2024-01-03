@@ -3,12 +3,33 @@
     box-sizing: border-box;
 }
 
+body {
+    background-image: url('./../images/cockney.jpg');
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+}
+
+#outer-container {
+    max-height: 20vh !important;
+}
+
+h1 {
+    text-align: center;
+    background-color: white;
+    margin: auto;
+    margin-top: 5px;
+    padding: 5px;
+    /* display: inline; */
+}
+
 #chat-container {
     max-width: 600px;
-    margin: 0 auto;
+    margin: 11% auto;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    background-color: white;
 }
 
 #response-area {
